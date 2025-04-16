@@ -24,6 +24,10 @@ Route::get('/product/{id}', [HomeController::class, 'show'])->name("product");
 
 Route::post('/checkout', [CheckoutController::class, 'process'])->name("checkout-process");
 
+Route::get('/checkout/{transaction}', [CheckoutController::class, 'checkout'])->name("checkout");
+
+Route::get('checkout/success/{transaction}', [CheckoutController::class, 'success'])->name("checkout-success");
+
 Route::get('/transactions', [TransactionController::class, 'index'])->name("transactions");
 
 
