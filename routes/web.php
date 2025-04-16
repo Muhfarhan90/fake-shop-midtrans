@@ -30,5 +30,5 @@ Route::get('checkout/success/{transaction}', [CheckoutController::class, 'succes
 
 Route::get('/transactions', [TransactionController::class, 'index'])->name("transactions");
 
-
+Route::get('/transactions/export-pdf/{id}', [TransactionController::class, 'exportPDF'])->name("transactions.export-pdf");
 Auth::routes();

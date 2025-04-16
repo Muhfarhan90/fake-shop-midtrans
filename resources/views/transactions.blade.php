@@ -12,6 +12,7 @@
                         <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
+                                    <th>#</th>
                                     <th>Produk</th>
                                     <th>Harga</th>
                                     <th>Status</th>
@@ -22,6 +23,7 @@
                             <tbody>
                                 @forelse ($transactions as $transaction)
                                     <tr>
+                                        <td>{{ $loop->iteration }}</td>
                                         <td>{{ $transaction['product']['name'] }}</td>
                                         <td>Rp{{ number_format($transaction['product']['price'], 0, ',', '.') }}</td>
                                         <td>
@@ -45,6 +47,9 @@
                                                         value="{{ $transaction['product']['price'] }}">
                                                     <button type="submit" class="btn btn-primary">Bayar</button>
                                                 </form>
+
+                                                @else
+                                                <a href="/transactions/export-pdf/{{ $transaction['id'] }}" class="btn btn-info">Cetak PDF</a>
                                             @endif
                                         </td>
                                     </tr>
