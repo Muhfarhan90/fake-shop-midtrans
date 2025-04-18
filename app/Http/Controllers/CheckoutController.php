@@ -33,7 +33,7 @@ class CheckoutController extends Controller
 
         $params = array(
             'transaction_details' => array(
-                'order_id' => rand(),
+                'order_id' => $transaction->id,
                 'gross_amount' => $data['price'],
             ),
             'customer_details' => array(
